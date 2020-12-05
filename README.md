@@ -4,3 +4,4 @@
 # ERD: 
 ![alt text](https://github.com/DeannaMix/capstone-docupet/blob/main/public/docupetERD.png?raw=true)
 # Video: 
+https://www.loom.com/share/0dc6e500fea9407b8a1d4f708becda1d
