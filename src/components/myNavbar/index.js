@@ -10,6 +10,7 @@ export default function VerticalNavbar(props) {
   };
 
   const signIn = (e) => {
+    console.warn('I am here');
     e.preventDefault();
     const provider = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(provider);
