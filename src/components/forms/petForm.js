@@ -25,7 +25,7 @@ export default class PetForm extends Component {
       this.setState({ imageUrl: '' });
       const storageRef = firebase.storage().ref();
       const imageRef = storageRef.child(
-        `pinterest/${this.state.userId}/${Date.now()}${e.target.files[0].name}`,
+        `docupet/${this.state.userId}/${Date.now()}${e.target.files[0].name}`,
       );
       imageRef.put(e.target.files[0]).then((snapshot) => {
         snapshot.ref.getDownloadURL().then((imageUrl) => {
@@ -48,7 +48,7 @@ export default class PetForm extends Component {
       });
     } else {
       petData.updatePet(this.state).then(() => {
-        this.props.onUpdate(this.props.board.firebaseKey);
+        this.props.onUpdate(this.props.pets.firebaseKey);
       });
     }
   };
