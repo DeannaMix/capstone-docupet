@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import petData from '../helpers/data/petData';
-import petsCard from '../components/cards/petsCard';
+import PetsCard from '../components/cards/petsCard';
 import getUid from '../helpers/data/authData';
 import Loader from '../components/Loader';
-import petForm from '../components/forms/petForm';
+import PetForm from '../components/forms/petForm';
 import AppModal from '../components/AppModal';
 
 export default class Pets extends Component {
@@ -41,10 +41,10 @@ export default class Pets extends Component {
   render() {
     const { pets, loading } = this.state;
     const showPets = () => pets.map((pet) => (
-        <petsCard
-          key={pets.firebaseKey}
-          board={pets}
-          removeBoard={this.removeBoard}
+        <PetsCard
+          key={pet.firebaseKey}
+          pet={pet}
+          removePet={this.removePet}
         />
     ));
     return (
@@ -54,7 +54,7 @@ export default class Pets extends Component {
         ) : (
           <>
             <AppModal title={'Create Pet'} buttonLabel={'Create Pet'} buttonColor={'primary'}>
-              <petForm onUpdate={this.getPets} />
+              <PetForm onUpdate={this.getPets} />
             </AppModal>
             <h2>All Pets</h2>
             <div className='d-flex flex-wrap justify-content-center'>
