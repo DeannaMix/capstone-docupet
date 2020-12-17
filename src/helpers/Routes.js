@@ -13,7 +13,7 @@ export default function Routes({ user }) {
     <Switch>
       <Route exact path='/Home' component={() => <Home user={user}/>}/>
       <Route exact path='/petProfile' component={() => <PetProfile user={user}/>}/>
-      <Route exact path='/documents' component={() => <Documents user={user}/>}/>
+      <Route exact path='/Documents' component={() => <Documents user={user}/>}/>
       <Route component={NotFound}/>
     </Switch>
   );
