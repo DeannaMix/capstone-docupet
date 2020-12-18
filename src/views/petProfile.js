@@ -33,7 +33,7 @@ export default class Pets extends Component {
     this.setState({
       pets: removedPet,
     });
-    petData.deletePet(e.target.id).then(() => {
+    petData.deletePetProfile(e.target.id).then(() => {
       this.getPets();
     });
   };

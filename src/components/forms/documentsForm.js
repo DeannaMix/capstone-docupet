@@ -8,7 +8,7 @@ import petData from '../../helpers/data/petData';
 export default class DocumentForm extends Component {
   state = {
     firebaseKey: this.props.document?.firebaseKey || '',
-    name: this.props.document?.name || '',
+    petName: this.props.document?.name || '',
     imageUrl: this.props.document?.imageUrl || '',
     UserId: this.props.document?.UserId || '',
     description: this.props.document?.description || '',
@@ -16,7 +16,7 @@ export default class DocumentForm extends Component {
     success: false,
   };
 
-  documentsRef = React.createRef();
+  petsRef = React.createRef()
 
   componentDidMount() {
     const UserId = getUser();
@@ -52,7 +52,7 @@ export default class DocumentForm extends Component {
 
     if (this.state.firebaseKey === '') {
       const newDocument = {
-        name: this.state.name,
+        petId: this.state.name,
         description: this.state.description,
         imageUrl: this.state.imageUrl,
         firebaseKey: this.state.firebaseKey,
@@ -60,7 +60,7 @@ export default class DocumentForm extends Component {
       };
       documentData.createDocument(newDocument).then((response) => {
         const petsDocument = {
-          petsId: this.petsRef.current.value,
+          petId: this.petsRef.current.value,
           documentId: response.data.firebaseKey,
           userId: this.state.UserId,
         };
@@ -145,8 +145,8 @@ export default class DocumentForm extends Component {
         />
         <p className='mt-2'>Select A Pet</p>
         <select ref={this.petsRef} className='form-control form-control-md mb-2'>
-            {Object.keys(petName).length && petName.map((pets) => (
-              <option key={pets.firebaseKey} value={pets.firebaseKey}>{pets.name}</option>
+            {Object.keys(petName).length && petName.map((pet) => (
+              <option key={pet.firebaseKey} value={pet.firebaseKey}>{pet.name}</option>
             ))}
         </select>
         <button className='btn btn-success'>Submit</button>
