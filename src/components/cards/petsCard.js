@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import AppModal from '../AppModal';
+import PetForm from '../forms/petForm';
 
 export default class PetCards extends Component {
   render() {
-    const { pet, removePet } = this.props;
+    const { pet, removePet, onUpdate } = this.props;
     return (
       <div className='card m-3'>
         <img className='card-img-top pets-img' src={pet.imageUrl} alt='Card cap'></img>
@@ -13,6 +15,9 @@ export default class PetCards extends Component {
           <Link className='btn btn-primary' to={`/pets/${pet.firebaseKey}`}>
             View Documents
           </Link>
+          <AppModal title={'Update Pet'} buttonLabel={'Update Pet'}>
+            { Object.keys(pet).length && <PetForm onUpdate={onUpdate} pet={pet} />}
+            </AppModal>
           <button className='btn btn-danger' id={pet.firebaseKey} onClick={(e) => removePet(e)}>Delete Pet</button>
         </div>
       </div>

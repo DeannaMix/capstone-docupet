@@ -32,6 +32,7 @@ function createPet(petsObj) {
 }
 
 const updatePet = (petsObj) => new Promise((resolve, reject) => {
+  console.log(petsObj);
   axios
     .patch(`${baseUrl}/pets/${petsObj.firebaseKey}.json`, petsObj)
     .then((response) => {
@@ -41,8 +42,8 @@ const updatePet = (petsObj) => new Promise((resolve, reject) => {
 
 const createPetProfile = (obj) => new Promise((resolve, reject) => {
   axios
-    .post(`${baseUrl}/pets-documents.json`, obj).then((response) => {
-      axios.patch(`${baseUrl}/pets-documents/${response.data.name}.json`, { firebaseKey: response.data.name })
+    .post(`${baseUrl}/pets_documents.json`, obj).then((response) => {
+      axios.patch(`${baseUrl}/pets_documents/${response.data.name}.json`, { firebaseKey: response.data.name })
         .then((patchResponse) => {
           resolve(patchResponse);
         }).catch((error) => reject(error));
@@ -51,7 +52,7 @@ const createPetProfile = (obj) => new Promise((resolve, reject) => {
 
 const deletePetProfile = (petsFirebaseKey) => axios.delete(`${baseUrl}/pets/${petsFirebaseKey}.json`)
   .then(() => {
-    axios.get(`${baseUrl}/pets-documents.json?orderBy="petsId"&equalTo="${petsFirebaseKey}"`)
+    axios.get(`${baseUrl}/pets_documents.json?orderBy="petsId"&equalTo="${petsFirebaseKey}"`)
       .then((response) => {
         const responseArray = Object.values(response);
         responseArray.forEach((respArr) => {
@@ -63,7 +64,7 @@ const deletePetProfile = (petsFirebaseKey) => axios.delete(`${baseUrl}/pets/${pe
       });
   });
 
-const deletePet = (id) => axios.delete(`${baseUrl}/pets-documents/${id}.json`);
+const deletePet = (id) => axios.delete(`${baseUrl}/pets_documents/${id}.json`);
 
 export default {
   getAllUserPets,

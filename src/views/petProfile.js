@@ -33,7 +33,7 @@ export default class Pets extends Component {
     this.setState({
       pets: removedPet,
     });
-    petData.deletePet(e.target.id).then(() => {
+    petData.deletePetProfile(e.target.id).then(() => {
       this.getPets();
     });
   };
@@ -45,6 +45,7 @@ export default class Pets extends Component {
           key={pet.firebaseKey}
           pet={pet}
           removePet={this.removePet}
+          onUpdate={this.getPets}
         />
     ));
     return (

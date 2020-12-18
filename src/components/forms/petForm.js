@@ -6,11 +6,11 @@ import petData from '../../helpers/data/petData';
 
 export default class PetForm extends Component {
   state = {
-    firebaseKey: this.props.pets?.firebaseKey || '',
-    name: this.props.pets?.name || '',
-    imageUrl: this.props.pets?.imageUrl || '',
-    userId: this.props.pets?.userId || '',
-    description: this.props.pets?.description || '',
+    firebaseKey: this.props.pet?.firebaseKey || '',
+    name: this.props.pet?.name || '',
+    imageUrl: this.props.pet?.imageUrl || '',
+    userId: this.props.pet?.userId || '',
+    description: this.props.pet?.description || '',
   };
 
   componentDidMount() {
@@ -42,13 +42,15 @@ export default class PetForm extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
 
-    if (this.state.firebaseKey === '') {
-      petData.createPet(this.state).then(() => {
-        this.props.onUpdate();
+    if (this.props.pet) {
+      console.log('Update');
+      petData.updatePet(this.state).then(() => {
+        this.props.onUpdate(this.props.pet.firebaseKey);
       });
     } else {
-      petData.updatePet(this.state).then(() => {
-        this.props.onUpdate(this.props.pets.firebaseKey);
+      console.log('Create');
+      petData.createPet(this.state).then(() => {
+        this.props.onUpdate();
       });
     }
   };

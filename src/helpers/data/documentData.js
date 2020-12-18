@@ -4,7 +4,7 @@ import petData from './petData';
 const baseUrl = 'https://docupet-39cff-default-rtdb.firebaseio.com/';
 
 const getPetDocuments = (petsId) => new Promise((resolve, reject) => {
-  axios.get(`${baseUrl}/pets-documents.json?orderBy="petsId"&equalTo="${petsId}"`).then((response) => {
+  axios.get(`${baseUrl}/pets_documents.json?orderBy="petsId"&equalTo="${petsId}"`).then((response) => {
     resolve(Object.values(response.data));
   }).catch((error) => reject(error));
 });
@@ -18,6 +18,7 @@ const getDocument = (documentId) => new Promise((resolve, reject) => {
 const getAllPetDocuments = (uid) => new Promise((resolve, reject) => {
   axios
     .get(`${baseUrl}/document.json?orderBy="UserId"&equalTo="${uid}"`).then((response) => {
+      console.log(response.data);
       resolve(Object.values(response.data));
     })
     .catch((error) => reject(error));
@@ -27,7 +28,8 @@ const createDocument = (documentObj) => new Promise((resolve, reject) => {
   axios
     .post(`${baseUrl}/document.json`, documentObj)
     .then((response) => {
-      axios.patch(`${baseUrl}/documemnt/${response.data.name}.json`, { firebaseKey: response.data.name }).then((patchResponse) => {
+      console.log(response);
+      axios.patch(`${baseUrl}/document/${response.data.name}.json`, { firebaseKey: response.data.name }).then((patchResponse) => {
         resolve(patchResponse);
       }).catch((error) => reject(error));
     });
@@ -39,17 +41,15 @@ const getPublicDocuments = () => new Promise((resolve, reject) => {
   }).catch((error) => reject(error));
 });
 
-// const deletePin = (firebaseKey) => axios.delete(`${baseUrl}/pins/${firebaseKey}.json`);
-
 const deleteDocument = (documentId) => axios.delete(`${baseUrl}/document/${documentId}.json`)
   .then(() => {
-    axios.get(`${baseUrl}/pets-documents.json?orderBy="documentId"&equalTo="${documentId}"`)
+    axios.get(`${baseUrl}/pets_documents.json?orderBy="documentId"&equalTo="${documentId}"`)
       .then((response) => {
         const responseArray = Object.values(response);
         responseArray.forEach((respArr) => {
           const petDocumentIdsArray = Object.keys(respArr);
           petDocumentIdsArray.forEach((id) => {
-            petData.deletePetProfilet(id);
+            petData.deletePetProfile(id);
           });
         });
       });
@@ -64,7 +64,7 @@ const updateDocument = (documentObj) => new Promise((resolve, reject) => {
 });
 
 const getPetProfileToDelete = (documentId) => new Promise((resolve, reject) => {
-  axios.get(`${baseUrl}/pets-document.json?orderBy="documentId"&equalTo="${documentId}"`)
+  axios.get(`${baseUrl}/pets_documents.json?orderBy="documentId"&equalTo="${documentId}"`)
     .then((response) => {
       const responseArray = Object.values(response);
       responseArray.forEach((respArr) => {
@@ -75,6 +75,8 @@ const getPetProfileToDelete = (documentId) => new Promise((resolve, reject) => {
       });
     });
 });
+
+// const deleteSingleDocument = (id) => axios.delete(`${baseUrl}/pets_documents/${id}.json`);
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
