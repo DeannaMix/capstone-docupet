@@ -52,10 +52,9 @@ export default class DocumentForm extends Component {
 
     if (this.state.firebaseKey === '') {
       const newDocument = {
-        petId: this.state.name,
+        name: this.state.name,
         description: this.state.description,
         imageUrl: this.state.imageUrl,
-        firebaseKey: this.state.firebaseKey,
         UserId: this.state.UserId,
       };
       documentData.createDocument(newDocument).then((response) => {
@@ -72,7 +71,6 @@ export default class DocumentForm extends Component {
         });
       });
     } else {
-      documentData.getPetProfileToDelete(this.state.firebaseKey);
       const updatedDocument = {
         name: this.state.name,
         description: this.state.description,
@@ -81,12 +79,12 @@ export default class DocumentForm extends Component {
         UserId: this.state.UserId,
       };
       documentData.updateDocument(updatedDocument).then(() => {
-        const updatedPetProfile = {
-          petsId: this.petsRef.current.value,
-          documentId: this.state.firebaseKey,
-          userId: this.state.UserId,
-        };
-        petData.createPetProfile(updatedPetProfile);
+        // const updatedPetProfile = {
+        //   petId: this.petsRef.current.value,
+        //   documentId: this.state.firebaseKey,
+        //   userId: this.state.UserId,
+        // };
+        // petData.createPetProfile(updatedPetProfile);
         this.props.onUpdate?.(this.props.document.firebaseKey);
         this.setState({
           success: true,
@@ -145,7 +143,7 @@ export default class DocumentForm extends Component {
         />
         <p className='mt-2'>Select A Pet</p>
         <select ref={this.petsRef} className='form-control form-control-md mb-2'>
-            {Object.keys(petName).length && petName.map((pet) => (
+            {this.props.pets.length && this.props.pets.map((pet) => (
               <option key={pet.firebaseKey} value={pet.firebaseKey}>{pet.name}</option>
             ))}
         </select>

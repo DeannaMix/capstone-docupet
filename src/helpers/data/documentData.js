@@ -18,6 +18,7 @@ const getDocument = (documentId) => new Promise((resolve, reject) => {
 const getAllPetDocuments = (uid) => new Promise((resolve, reject) => {
   axios
     .get(`${baseUrl}/document.json?orderBy="UserId"&equalTo="${uid}"`).then((response) => {
+      console.log(response.data);
       resolve(Object.values(response.data));
     })
     .catch((error) => reject(error));
@@ -27,7 +28,8 @@ const createDocument = (documentObj) => new Promise((resolve, reject) => {
   axios
     .post(`${baseUrl}/document.json`, documentObj)
     .then((response) => {
-      axios.patch(`${baseUrl}/pets_documents/${response.data.name}.json`, { firebaseKey: response.data.name }).then((patchResponse) => {
+      console.log(response);
+      axios.patch(`${baseUrl}/document/${response.data.name}.json`, { firebaseKey: response.data.name }).then((patchResponse) => {
         resolve(patchResponse);
       }).catch((error) => reject(error));
     });

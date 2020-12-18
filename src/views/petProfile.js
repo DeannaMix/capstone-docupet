@@ -45,6 +45,7 @@ export default class Pets extends Component {
           key={pet.firebaseKey}
           pet={pet}
           removePet={this.removePet}
+          onUpdate={this.getPets}
         />
     ));
     return (

@@ -5,7 +5,8 @@ import documentData from '../../helpers/data/documentData';
 
 export default class DocumentsCard extends Component {
   render() {
-    const { document, onUpdate } = this.props;
+    const { document, onUpdate, removeDocument } = this.props;
+    console.log(document);
     return (
       <div className='card m-3 w-300'>
       <a href={document.url}>
@@ -16,9 +17,9 @@ export default class DocumentsCard extends Component {
           <p className='card-text'>{document.description}</p>
           {(this.props.isOnHome !== true) ? (
             <div className='d-flex justify-content-center'>
-          <button className='btn btn-danger mr-1' id={document.firebaseKey} onClick={() => documentData.deleteDocument(document.firebaseKey)}>Delete Document</button>
+          <button className='btn btn-danger mr-1' id={document.firebaseKey} onClick={(e) => removeDocument(e)}>Delete Document</button>
           <AppModal title={'Update Document'} buttonLabel={'Update Document'}>
-            { Object.keys(document).length && <DocumentsForm document={document} onUpdate={onUpdate} board={this.props.board}/>}
+            { Object.keys(document).length && <DocumentsForm document={document} onUpdate={onUpdate} board={this.props.board} pets={this.props.pets} />}
             </AppModal>
           </div>
           ) : (

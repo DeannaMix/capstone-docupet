@@ -16,7 +16,7 @@ export default class PetCards extends Component {
             View Documents
           </Link>
           <AppModal title={'Update Pet'} buttonLabel={'Update Pet'}>
-            { Object.keys(pet).length && <PetForm pin={pet} onUpdate={onUpdate} pet={this.props.pet}/>}
+            { Object.keys(pet).length && <PetForm onUpdate={onUpdate} pet={pet} />}
             </AppModal>
           <button className='btn btn-danger' id={pet.firebaseKey} onClick={(e) => removePet(e)}>Delete Pet</button>
         </div>

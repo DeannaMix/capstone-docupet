@@ -32,6 +32,7 @@ function createPet(petsObj) {
 }
 
 const updatePet = (petsObj) => new Promise((resolve, reject) => {
+  console.log(petsObj);
   axios
     .patch(`${baseUrl}/pets/${petsObj.firebaseKey}.json`, petsObj)
     .then((response) => {
