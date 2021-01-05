@@ -10,15 +10,17 @@ export default class PetCards extends Component {
       <div className='card m-3'>
         <img className='card-img-top pets-img' src={pet.imageUrl} alt='Card cap'></img>
         <div className='card-body'>
-          <h5 className='card-title'>{pet.name}</h5>
-          <p className='card-text'>{pet.description}</p>
+          <h5 className='d-flex justify-content-center'>{pet.name}</h5>
+          <p className='d-flex justify-content-center'>{pet.description}</p>
           {/* <Link className='btn btn-primary' to={`/pet/${pet.firebaseKey}`}>
             View Documents
           </Link> */}
+          <div className='d-flex justify-content-center'>
           <AppModal title={'Update Pet'} buttonLabel={'Update Pet'}>
             { Object.keys(pet).length && <PetForm onUpdate={onUpdate} pet={pet} />}
             </AppModal>
           <button className='btn btn-danger' id={pet.firebaseKey} onClick={(e) => removePet(e)}>Delete Pet</button>
+          </div>
         </div>
       </div>
     );
