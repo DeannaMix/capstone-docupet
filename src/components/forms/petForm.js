@@ -84,7 +84,6 @@ export default class PetForm extends Component {
           onChange={this.handleChange}
           placeholder='Enter an image URL or upload a file'
           className='form-control form-control-lg m-1'
-          required
         />
         <input
           className='m-2'

@@ -47,7 +47,8 @@ export default class Home extends React.Component {
     };
     return (
       <div>
-        <h1>Your Pets Documents!</h1>
+        <h1 className='d-flex flex-wrap justify-content-center'>Welcome to Docupet!</h1>
+        <h2 className='d-flex flex-wrap justify-content-center'> Begin by creating a pet profile!</h2>
         <div className='d-flex flex-wrap justify-content-center'>
         {loadComponent()}
         </div>

@@ -12,9 +12,9 @@ export default class PetCards extends Component {
         <div className='card-body'>
           <h5 className='card-title'>{pet.name}</h5>
           <p className='card-text'>{pet.description}</p>
-          <Link className='btn btn-primary' to={`/pets/${pet.firebaseKey}`}>
+          {/* <Link className='btn btn-primary' to={`/pet/${pet.firebaseKey}`}>
             View Documents
-          </Link>
+          </Link> */}
           <AppModal title={'Update Pet'} buttonLabel={'Update Pet'}>
             { Object.keys(pet).length && <PetForm onUpdate={onUpdate} pet={pet} />}
             </AppModal>
