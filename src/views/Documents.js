@@ -72,7 +72,7 @@ export default class Documents extends React.Component {
           <AppModal title={'Create Document'} buttonLabel={'Create Document'} buttonColor={'primary'}>
             <DocumentForm onUpdate={this.getDocuments} document={this.state.document} pets={pets} />
           </AppModal>
-          <h1>All documents</h1>
+          <h1 className='d-flex flex-wrap justify-content-center' id='document-title'>All documents</h1>
           <div className='d-flex flex-wrap justify-content-center'>
             {showDocuments()}
           </div>

@@ -54,10 +54,10 @@ export default class Pets extends Component {
           <Loader />
         ) : (
           <>
-            <AppModal title={'Create Pet'} buttonLabel={'Create Pet'} buttonColor={'primary'}>
+            <AppModal title={'Create Pet'} buttonLabel={'Create Pet'} buttonColor={'primary'} className='create' id='create'>
               <PetForm onUpdate={this.getPets} />
             </AppModal>
-            <h2>All Pets</h2>
+            <h2 className='d-flex flex-wrap justify-content-center'>All Pets</h2>
             <div className='d-flex flex-wrap justify-content-center'>
               {showPets()}
             </div>

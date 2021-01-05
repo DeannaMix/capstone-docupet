@@ -11,8 +11,8 @@ const AppModal = (props) => {
   const toggle = () => setModal(!modal);
 
   return (
-    <div>
-      <Button color={props.buttonColor} onClick={toggle}>
+    <div className='d-flex flex-wrap justify-content-center'>
+      <Button color={props.buttonColor} onClick={toggle} className="button">
         {buttonLabel}
       </Button>
       <Modal isOpen={modal} toggle={toggle} className={className}>

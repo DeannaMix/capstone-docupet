@@ -1,0 +1,14 @@
+.my-nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    position: fixed;
+    overflow: auto;
+    width: 20%;
+    margin: 0;
+    padding: 0;
+    @media only screen and (max-width: 600px) {
+      display: none;
+    }
+  }
