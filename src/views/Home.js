@@ -50,6 +50,9 @@ export default class Home extends React.Component {
         <h1 className='d-flex flex-wrap justify-content-center'>Welcome to Docupet!</h1>
         <h2 className='d-flex flex-wrap justify-content-center'> Begin by creating a pet profile!</h2>
         <div className='d-flex flex-wrap justify-content-center'>
+          <img src='https://i.pinimg.com/originals/74/c7/4e/74c74ef22c7b7ab621193e9862cdbd99.jpg'></img>
+        </div>
+        <div className='d-flex flex-wrap justify-content-center'>
         {loadComponent()}
         </div>
       </div>

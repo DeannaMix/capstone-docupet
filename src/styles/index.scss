@@ -26,3 +26,28 @@ body {
   flex-direction: row;
   align-self: center;
 }
+.nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links a {
+color: #3d405b;
+}
+
+#root {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+.body {
+  padding: 20px;
+  flex-grow: 1;
+
+}
+
+.card {
+  max-width: 400px;
+}
