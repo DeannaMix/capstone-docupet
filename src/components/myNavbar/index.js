@@ -25,9 +25,10 @@ export default function VerticalNavbar(props) {
           <div className='nav-brand'>
           </div>
           <ul className='nav-links'>
-            <li><Link to='/Home'><i className="fas fa-home icon"></i>Home</Link></li>
-            <li><Link to='/petProfile'><i className="fas fa-dog icon"></i>Pet Profile</Link></li>
-            <li><Link to='/Documents'><i className="fas fa-cat icon"></i>Your Documents</Link></li>
+            <li><Link to='/Home'><i className="fas fa-home icon"></i> Home</Link></li>
+            <li><Link to='/petProfile'><i className="fas fa-dog icon"></i> Pet Profile</Link></li>
+            <li><Link to='/Documents'><i className="fas fa-cat icon"></i> Your Documents</Link></li>
+            <li><Link to='/Activities'><i className="fas fa-calendar-plus icon"></i> Build A Puppy Calender</Link></li>
           </ul>
         </div>
         <div className='nav-auth'>
