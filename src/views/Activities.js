@@ -19,6 +19,15 @@ export default function Activities(props) {
             What does your puppy need to do daily?
           </label>
         </h2>
+        <h8>
+          Remember to add times to your activities and also keep in mind that puppies need 16-18 hours of sleep per day.
+        </h8>
+        <br></br>
+        <h8>
+          Recommended activities: Training. Play Time. Sleep Time. Socialization.
+        </h8>
+        <br></br>
+        <br></br>
         <input
           type="text"
           id="new-todo-input"
