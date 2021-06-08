@@ -57,7 +57,7 @@ export default function Activities(props) {
         </button>
       </div>
       <h2 id="list-heading">
-        3 tasks remaining
+         tasks remaining
       </h2>
       <ul
         role="list"
