@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "1Venj5eqaSgkZmefSJ1udX3WcP/EIezdMRG4/FimaDVcidjKnNOLKoWc5UQ7L7mXWKqVHEPJhORzL/rRJb/UQg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\13526\\source\\repos\\capstone-docupet\\Docupet\\Docupet.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\13526\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.13\\microsoft.netcore.app.host.win-x64.3.1.13.nupkg.sha512"
+  ],
+  "logs": []
+}
