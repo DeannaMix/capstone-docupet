@@ -1,0 +1,5 @@
+C:\Users\13526\source\repos\capstone-docupet\Docupet\obj\Debug\netcoreapp3.1\Docupet.csprojAssemblyReference.cache
+C:\Users\13526\source\repos\capstone-docupet\Docupet\obj\Debug\netcoreapp3.1\Docupet.AssemblyInfoInputs.cache
+C:\Users\13526\source\repos\capstone-docupet\Docupet\obj\Debug\netcoreapp3.1\Docupet.AssemblyInfo.cs
+C:\Users\13526\source\repos\capstone-docupet\Docupet\obj\Debug\netcoreapp3.1\Docupet.csproj.CoreCompileInputs.cache
+C:\Users\13526\source\repos\capstone-docupet\Docupet\obj\Debug\netcoreapp3.1\Docupet.MvcApplicationPartsAssemblyInfo.cache
