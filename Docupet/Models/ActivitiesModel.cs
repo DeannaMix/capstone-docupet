@@ -8,7 +8,6 @@ namespace Docupet.Models
     public class ActivitiesModel
     {
         public int Id { get; set; }
-        public int petId { get; set; }
         public int time { get; set; }
         public string name { get; set; }
     }

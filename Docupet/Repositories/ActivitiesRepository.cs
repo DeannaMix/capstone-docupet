@@ -27,7 +27,7 @@ namespace Docupet.Repositories
 
         public void Add(Activity activity)
         {
-            var sql = @"INSERT INTO [Activities] ([Name],[Time])
+            var sql = @"INSERT INTO [Activity] ([Name],[Time])
                         OUTPUT inserted.Id
                         VALUES(@Name, @Time)";
 
@@ -59,6 +59,7 @@ namespace Docupet.Repositories
                         SET
                         Name = @name,
                         Time = @time,
+                        WHERE Id = @id";
                         
 
             using var db = new SqlConnection(ConnectionString);

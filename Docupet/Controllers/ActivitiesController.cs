@@ -11,7 +11,7 @@ using Docupet.Repositories;
 
 namespace Docupet.Controllers
 {
-    [Route("api/activities")]
+    [Route("api/activity")]
     [ApiController]
     public class ActivitiesController : ControllerBase
     {
@@ -34,8 +34,8 @@ namespace Docupet.Controllers
 
         public IActionResult AddActivity(Activity activity)
         {
-            _repo.add(activity);
-            return Created($"api/activities/{activity.id})", activity);
+            _repo.Add(activity);
+            return Created($"api/activity/{activity.id})", activity);
 
         }
 
@@ -68,7 +68,7 @@ namespace Docupet.Controllers
 
         //Delete an Activity
         [HttpDelete("{activityId}")]
-        public IActionResult DeleteAni(int activityId)
+        public IActionResult DeleteActivity(int activityId)
         {
             _repo.Remove(activityId);
 
