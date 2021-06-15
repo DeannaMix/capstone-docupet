@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Docupet.Models
 {
-    public class ActivitiesModel
+    public class Activity
     {
         public int Id { get; set; }
         public int time { get; set; }

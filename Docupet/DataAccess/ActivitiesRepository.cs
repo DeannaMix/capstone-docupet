@@ -5,9 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Docupet.Models;
-using System.Diagnostics;
 
-namespace Docupet.Repositories
+namespace Docupet.DataAccess
 {
     public class ActivitiesRepository
     {
@@ -18,7 +17,7 @@ namespace Docupet.Repositories
             using var db = new SqlConnection(ConnectionString);
 
             var sql = @"Select *
-                        From Activities";
+                        From Activity";
 
             return db.Query<Activity>(sql).ToList();
         }

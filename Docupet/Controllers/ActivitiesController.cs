@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using Dapper;
 using Docupet.Models;
 using Docupet.DataAccess;
-using Docupet.Repositories;
 
 namespace Docupet.Controllers
 {
@@ -15,7 +14,7 @@ namespace Docupet.Controllers
     [ApiController]
     public class ActivitiesController : ControllerBase
     {
-        Repositories.ActivitiesRepository _repo;
+       ActivitiesRepository _repo;
 
         public ActivitiesController()
         {
@@ -35,7 +34,7 @@ namespace Docupet.Controllers
         public IActionResult AddActivity(Activity activity)
         {
             _repo.Add(activity);
-            return Created($"api/activity/{activity.id})", activity);
+            return Created($"api/activity/{activity.Id})", activity);
 
         }
 
