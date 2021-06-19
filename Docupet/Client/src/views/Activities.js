@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 // import { makeStyles } from '@material-ui/core/styles';
 // import List from '@material-ui/core/List';
 // import ListItem from '@material-ui/core/ListItem';
@@ -33,7 +33,29 @@ const ActivityRow = ({ activity }) => (
 );
 
 export default function Activities(props) {
-  const { activity, getAllActivity } = useContext(ActivityContext);
+  const { activity, getAllActivity, addActivity } = useContext(ActivityContext);
+
+  const [name, setName] = useState({
+    name: '',
+  });
+
+  const handleActivityChange = (e) => {
+    const newActivity = { ...name };
+    newActivity[e.target.id] = e.target.value;
+    setName(newActivity);
+  };
+
+  const handleSave = () => {
+    if (activity.name === '') {
+      // eslint-disable-next-line no-alert
+      window.alert('Cannot be left blank');
+    } else {
+      addActivity({
+        name: name.name,
+      });
+      getAllActivity();
+    }
+  };
 
   useEffect(() => {
     getAllActivity();
@@ -48,23 +70,30 @@ export default function Activities(props) {
             What does your puppy need to do daily?
           </label>
         </h2>
-        <h8>
+        <h6>
           Remember to add times to your activities and also keep in mind that puppies need 16-18 hours of sleep per day.
-        </h8>
+        </h6>
         <br></br>
-        <h8>
+        <h6>
           Recommended activities: Training. Play Time. Sleep Time. Socialization.
-        </h8>
+        </h6>
         <br></br>
         <br></br>
         <input
           type="text"
-          id="new-todo-input"
+          id="name"
+          onChange={
+            handleActivityChange
+          }
           className="input input__lg"
           name="text"
           autoComplete="off"
+          placeholder="Activity"
         />
-        <button type="submit" className="btn btn__primary btn__lg">
+        <button type="submit" className="btn btn__primary btn__lg" onClick={(e) => {
+          e.preventDefault();
+          handleSave();
+        }}>
           Add
         </button>
       </form>
