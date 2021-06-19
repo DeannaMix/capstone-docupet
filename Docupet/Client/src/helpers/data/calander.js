@@ -22,9 +22,16 @@ export const ActivityProvider = (props) => {
       body: JSON.stringify(activityObj),
     }).then((res) => res.json());
   };
+
+  const deleteActivity = (id) => {
+    fetch(`${baseUrl}/${id}`, {
+      method: 'DELETE',
+    });
+  };
+
   return (
       <ActivityContext.Provider value= {{
-        activity, getAllActivity, addActivity,
+        activity, getAllActivity, addActivity, deleteActivity,
       }}>
           {props.children}
           </ActivityContext.Provider>

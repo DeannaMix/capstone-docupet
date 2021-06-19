@@ -11,7 +11,14 @@ import React, { useContext, useEffect, useState } from 'react';
 // import CommentIcon from '@material-ui/icons/Comment';
 import { ActivityContext } from '../helpers/data/calander';
 
-const ActivityRow = ({ activity }) => (
+const ActivityRow = ({ activity }) => {
+  const { deleteActivity, getAllActivity } = useContext(ActivityContext);
+
+  const handleDelete = () => {
+    deleteActivity(activity.id);
+    getAllActivity();
+  };
+  return (
     <li className="todo stack-small">
           <div className="c-cb">
             <input id="todo-0" type="checkbox" defaultChecked={true} />
@@ -25,12 +32,13 @@ const ActivityRow = ({ activity }) => (
             <button type="button" className="btn">
               Edit <span className="visually-hidden">Eat</span>
             </button>
-            <button type="button" className="btn btn__danger">
+            <button type="button" className="btn btn__danger" onClick={handleDelete}>
               Delete <span className="visually-hidden">Eat</span>
             </button>
           </div>
         </li>
-);
+  );
+};
 
 export default function Activities(props) {
   const { activity, getAllActivity, addActivity } = useContext(ActivityContext);
